@@ -10,7 +10,7 @@ exports.getUserById = (req, res, next, id) => {
       });
     }
     req.profile = user;
-    next();
+    next();    
   });
 };
 
