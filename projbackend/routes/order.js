@@ -7,6 +7,8 @@ const {
   getOrderById,
   createOrder,
   getAllOrders,
+  getOrderStatus,
+  updateStatus,
 } = require("../controllers/order");
 const { updateStock } = require("../controllers/product");
 
@@ -31,5 +33,20 @@ router.get(
   isAuthenticated,
   isAdmin,
   getAllOrders
+);
+
+router.get(
+  "/order/status/:userId",
+  isSignedIn,
+  isAuthenticated,
+  isAdmin,
+  getOrderStatus
+);
+router.put(
+  "/order/:orderId/status/:userId",
+  isSignedIn,
+  isAuthenticated,
+  isAdmin,
+  updateStatus
 );
 module.exports = router;
